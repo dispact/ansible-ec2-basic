@@ -1,0 +1,13 @@
+- name: Install httpd
+  hosts: localhost
+  remote_user: ec2-user
+
+  tasks:
+    - name: Install httpd
+      ansible.builtin.yum:
+        name: httpd
+        state: installed
+    - name: Ensure httpd is started
+      ansible.builtin.service:
+        name: httpd
+        state: started
